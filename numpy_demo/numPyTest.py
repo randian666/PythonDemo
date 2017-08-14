@@ -18,5 +18,6 @@ def main():
     print '数据类型',np_lst.dtype  #表示np_list类型
     print '每项内容的大小',np_lst.itemsize #每一项的大小 单位字节
     print '大小',np_lst.size   #np_list大小
+
 if __name__ == '__main__':
     main()
