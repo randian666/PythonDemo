@@ -10,12 +10,12 @@ print im.format,im.size
 
 ##面对对象
 class Student(object):
-    # 和普通的函数相比，在类中定义的函数只有一点不同，就是第一个参数永远是实例变量self，并且调用时，不用传递改参数。除此之外喝普通函数没有什么区别，仍然可以用默认参数、可变参数、关键字参数。
+    # 和普通的函数相比，在类中定义的函数只有一点不同，就是第一个参数永远是实例变量self，并且调用时，不用传递该参数。除此之外和普通函数没有什么区别，仍然可以用默认参数、可变参数、关键字参数。
     def __init__(self,name,score):
         self.name=name;
         self.score=score;
     #数据封装：可以直接在类的内部定义访问数据的函数，封装数据的函数是和类关联起来的。称之为的类的方法。
-    #定义一个类的方法，出了第一个参数是self外，其他和普通函数一样。调用该方法，只需要在实例变量上直接调用。除了self不用传递，其他参数正常传入
+    #定义一个类的方法，除了第一个参数是self外，其他和普通函数一样。调用该方法，只需要在实例变量上直接调用。除了self不用传递，其他参数正常传入
     def print_score(self):
         print '%s:%s' % (self.name,self.score)
     def get_grade(self):
@@ -93,6 +93,7 @@ print  isinstance(b,Animal)
 print  isinstance(c,Dog)
 #在继承关系中，如果一个实例的数据类型是某个子类，那它的数据类型也可以被看做是父类。反过来就不行。
 print  isinstance(c,Animal)
+
 
 
 
