@@ -95,14 +95,44 @@ print  isinstance(c,Dog)
 print  isinstance(c,Animal)
 
 
+def run_twice(animal):
+    animal.run();
 
+run_twice(Animal())
+run_twice(Dog())
+run_twice(Cat())
+#小结
+#继承可以把父类的所有功能都直接拿过来，这样就不必从零做起，子类需要新增自己特有的方法，也可以把父类不适合的方法覆盖重写；
+#有了继承，才能有多态。在调用类实例方法的时候，尽量把变量是作为父类类型，这样，所有子类类型都可以正常被接受；任何时候，如果没有合适类可以继承，就继承Object类。
 
+#使用type()判断对象类型
+print type(dog)
+#Python把每种type类型都定义好了常量，放在types模块里，使用之前需要导入
+import types
+print type('1234')==types.StringType
+print type('23')==types.TypeType  #所有类型本身的类型就是TypeType
+print isinstance('23',str) #能用type()判断的基本类型也可以用isinstance()判断
 
+#使用dir()；如果要获取一个对象的所有属性和方法，可以使用dir()函数，它返回一个包含字符串的list。
+print dir('ABC')
+print dir(dog)
+#类似__xxx___的属性和方法在py中都是有特殊用途的，比如__len__方法返回长度。
+print 'ABC'.__len__()
+class MyObject(object):
+    def __init__(self,x=9,y=10):
+        self.x=x;
+        self__y=y;
+    def __len__(self):
+        return 100
+obj=MyObject();
+print obj.__len__()
 
-
-
-
-
-
-
-
+#操作对象状态
+print hasattr(obj,'x') #有属性x么
+print hasattr(obj,'y') #有属性y么 私有属性查看不了
+setattr(obj,'z',222)  #给对象设置一个属性
+print hasattr(obj,'z')
+print getattr(obj,'x','404') #获取属性 如果属性不存在就返回404
+print hasattr(obj,'__len__') #获取对象的方法是否存在
+fn=getattr(obj,'__len__'); #获取对象的方法 并赋值给变量
+print fn()
